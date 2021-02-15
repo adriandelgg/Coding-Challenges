@@ -33,3 +33,14 @@ const printerError = s => {
     }
     return `${badCounter}/${s.length}`;  
 }
+
+// Sum of 2 lowest possible integers 7kyu
+function sumTwoSmallestNumbers(numbers) {  
+    let newNumbers = 0;
+    for (let i = 0; i < 2; i++) {
+        newNumbers += Math.min(...numbers);
+        let indexOfLowNum = numbers.indexOf(Math.min(...numbers));
+        numbers.splice(indexOfLowNum, 1);
+    }
+    return newNumbers;
+}
