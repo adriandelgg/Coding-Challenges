@@ -44,3 +44,8 @@ function sumTwoSmallestNumbers(numbers) {
     }
     return newNumbers;
 }
+
+// Array.dif 6kyu
+const arrayDiff = (a, b) => {
+    return a.filter(num => !b.includes(num) );
+}
