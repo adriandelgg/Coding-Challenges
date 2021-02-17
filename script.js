@@ -49,3 +49,23 @@ function sumTwoSmallestNumbers(numbers) {
 const arrayDiff = (a, b) => {
     return a.filter(num => !b.includes(num) );
 }
+
+// Sum of Digits / Digital Root 6kyu
+function numbersToArray(number) {
+    return number.toString().split('').map(num => parseInt(num) );
+}
+  
+function digital_root(n) {
+    let numsArray = numbersToArray(n);
+    let total = numsArray.reduce((firstValue, secondValue) =>
+        firstValue + secondValue 
+);
+    for (let i = 0; i < numsArray.length; i++) {
+        total = numbersToArray(total).reduce((firstValue, secondValue) =>
+            firstValue + secondValue 
+        );
+        if (numbersToArray(total).length === 1) {
+            return total;
+        }
+    }
+}
