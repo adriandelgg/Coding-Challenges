@@ -47,7 +47,9 @@ function sumTwoSmallestNumbers(numbers) {
 
 // Array.dif 6kyu
 const arrayDiff = (a, b) => {
-    return a.filter(num => !b.includes(num) );
+    return a.filter(num => 
+        !b.includes(num) 
+    );
 }
 
 // Sum of Digits / Digital Root 6kyu
@@ -59,7 +61,7 @@ function digital_root(n) {
     let numsArray = numbersToArray(n);
     let total = numsArray.reduce((firstValue, secondValue) =>
         firstValue + secondValue 
-);
+    );
     for (let i = 0; i < numsArray.length; i++) {
         total = numbersToArray(total).reduce((firstValue, secondValue) =>
             firstValue + secondValue 
@@ -68,4 +70,24 @@ function digital_root(n) {
             return total;
         }
     }
+}
+
+// Friend or Foe? 7kyu
+const friend = friends => {
+    return friends.filter(name => name.length === 4);
+}
+
+// Number to Objects 6kyu
+const numObj = s => {
+    return s.map(num => {
+        let value = String.fromCharCode(num);
+        let key = num.toString();
+        return { [key]: value } 
+    });
+}
+
+const numObj = s => {
+    return s.map(num => { 
+        return { [num]: String.fromCharCode(num) }
+    });
 }
