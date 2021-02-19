@@ -126,4 +126,41 @@ function to_nato(words) {
         }          
     }
     return a.join(' ');
-  }
+}
+
+// Count characters in your string 6kyu
+const count = string => {  
+    const obj = {};
+    string.split('')
+        .forEach(letter => {
+            if (obj[letter] != undefined) {
+                obj[letter]++;
+            } else {
+                obj[letter] = 1;
+                console.log(obj);
+            }
+        });
+    return obj;
+}
+
+//
+const list = names => {
+    let finalNames = '';
+    if (names.length === 1) {
+        return names[0].name;
+    } else if (names.length === 2) {
+        return names[0].name + ' & ' + names[1].name;
+    } else {
+        names.forEach(n => {
+            let name = n.name;
+            if (names.indexOf(n) === names.length - 1) {
+                finalNames += name;
+            } else if (names.indexOf(n) === names.length - 2) {
+                finalNames += name + ' & ';
+            } else {
+                finalNames += name + ', ';
+            }
+        });
+    }
+    return finalNames;
+}
