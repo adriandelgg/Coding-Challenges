@@ -1,5 +1,14 @@
 // A list of all the coding challenges I've solved with my solutions
 
+// Get the mean of an array 8kyu
+function getAverage(marks){
+    let total = 0;
+    marks.forEach(num => {
+        total += num;
+    });
+    return Math.floor(total / marks.length);
+}
+
 // Elevator Distance 7kyu
 const elevatorDistance = array => {
     let totalFloors = 0;
@@ -143,7 +152,7 @@ const count = string => {
     return obj;
 }
 
-//
+// Format a string of names like 'Bart, Lisa & Maggie'. 6kyu
 const list = names => {
     let finalNames = '';
     if (names.length === 1) {
@@ -163,4 +172,107 @@ const list = names => {
         });
     }
     return finalNames;
+}
+
+// Replace with alphabet position 6kyu
+function alphabetPosition(text) {
+    let alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    let stringSplit = text.toLowerCase().split('');
+    let finalString = [];
+    
+    for (let i = 0; i < stringSplit.length; i++) {
+        for (let j = 0; j < alphabet.length; j++) {
+            if (alphabet[j] === stringSplit[i]) {
+                finalString.push(j + 1);
+            }
+        }
+    }
+    return finalString.join(' ');
+}
+
+// Who likes it? 6kyu
+function likes(names) {
+    let totalNames = '';
+    let length = names.length;
+    if (length === 0) {
+        return 'no one likes this';
+    }
+    for (let i = 0; i < length; i++) {
+      
+        if (length > 3) {
+            if (i === 0) {
+                totalNames += names[i];
+            } else if (i === 1) {
+                totalNames += ', ' + names[i];
+            } 
+        } 
+      
+        else if (length === 2) {
+            if (i === 0) {
+                totalNames += names[i];
+            } else {
+                totalNames += ` and ${names[i]} like this`; 
+            }
+        }
+        
+        else if (length === 1) {
+            totalNames += `${names[i]} likes this`;
+        }
+        
+        else {
+            if (i === 0) {
+                totalNames += names[i];
+            } else if (i === 1) {
+                totalNames += ', ' + names[i];
+            } else {
+                totalNames += ` and ${names[i]} like this`; 
+            }
+        }
+    }
+    if (names.length > 3) {
+        totalNames += ` and ${names.length - 2} others like this`;
+    }
+    return totalNames;
+}
+
+// Count the divisor of a number 7kyu
+function getDivisorsCnt(n){
+    let counter = 0;
+    for (let i = 1; i <= n; i++) {
+        if (n % i == 0) {
+            counter++;
+        }
+    }
+    return counter;
+}
+
+// Reverse words 7kyu
+function reverseWords(str) {
+    let newer;
+    let newArray = str.split(' ');
+    let reversed = '';-
+    
+    newArray.forEach(word => {
+        newer = word.split('');
+        newer = newer.reverse();
+        reversed += newer.join('');
+        if (str.length > reversed.length) {
+            reversed += ' ';
+        }
+        console.log(reversed);
+    });
+    return reversed;
+}
+
+// Detect Panagram 6kyu
+const isPangram = string => {
+    const alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+    const stringLowerCased = string.toLowerCase();
+    let counter = 0;
+    alphabet.forEach(letter => {
+        if (stringLowerCased.includes(letter)) {
+            counter++;
+        }
+    });
+    return counter === 26 ? true : false;
 }
