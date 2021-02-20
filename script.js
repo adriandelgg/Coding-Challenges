@@ -303,3 +303,29 @@ const killer = (suspectInfo, dead) => {
         }
     }
 }
+
+// Multi-tap Keypad Text Entry on an Old Mobile Phone 6kyu
+const presses = phrase => {
+    const obj = {
+        1: '1',
+        2: 'ABC2',
+        3: 'DEF3',
+        4: 'GHI4',
+        5: 'JKL5',
+        6: 'MNO6',
+        7: 'PQRS7',
+        8: 'TUV8',
+        9: 'WXYZ9',
+        0: ' 0'
+    };
+    let counter = 0;
+    phrase = phrase.toUpperCase();
+    for (let i = 0; i < phrase.length; i++) {
+        for (const key in obj) {
+            if (obj[key].includes(phrase[i])) {
+                counter += obj[key].indexOf(phrase[i]) + 1;
+            }
+        }
+    }
+    return counter;
+}
