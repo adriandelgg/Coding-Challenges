@@ -329,3 +329,62 @@ const presses = phrase => {
     }
     return counter;
 }
+
+// Bouncing Balls 6kyu
+const bouncingBall = (h,  bounce,  window) => {
+    let counter = 0;
+    let ballRebound = h * bounce;
+    if (h > 0 &&
+        1 > bounce && 
+        bounce > 0 &&
+        window < h) 
+    {
+        counter++;
+        while (ballRebound > window) {
+            counter += 2;
+            ballRebound *= bounce;
+        }
+        return counter;
+    } else {
+        return -1;
+    }
+}
+
+// The Vowel Code 6kyu
+const encode = string => {
+    return string.split('').map(letter => {
+        switch (letter) {
+            case 'a':
+                return letter = 1;
+            case 'e':
+                return letter = 2;
+            case 'i':
+                return letter = 3;
+            case 'o':
+                return letter = 4;
+            case 'u':
+                return letter = 5;
+            default:
+                return letter;
+        }
+    }).join('');
+}
+  
+const decode = string => {
+    return string.split('').map(letter => {
+        switch (letter) {
+            case '1':
+                return letter = 'a';
+            case '2':
+                return letter = 'e';
+            case '3':
+                return letter = 'i';
+            case '4':
+                return letter = 'o';
+            case '5':
+                return letter = 'u';
+            default:
+                return letter;
+        }
+    }).join('');
+}
