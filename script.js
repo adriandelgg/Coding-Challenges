@@ -250,7 +250,7 @@ function getDivisorsCnt(n){
 function reverseWords(str) {
     let newer;
     let newArray = str.split(' ');
-    let reversed = '';-
+    let reversed = '';
     
     newArray.forEach(word => {
         newer = word.split('');
@@ -275,4 +275,31 @@ const isPangram = string => {
         }
     });
     return counter === 26 ? true : false;
+}
+
+// Highest Rank Number in an Array 6kyu
+const highestRank = arr => {
+    const obj = {};
+    arr.forEach(num => {
+        if (obj[num] === undefined) {
+            obj[num] = 1;
+        } else {
+            obj[num]++;
+        }
+    });
+    const keys = Object.keys(obj);
+    const values = Object.values(obj);
+    return Number(keys[values.lastIndexOf(Math.max(...values))]);
+}
+
+// Who is the killer? 7kyu
+const killer = (suspectInfo, dead) => {
+    for (const killer in suspectInfo) {
+        const theKiller = dead.every(victim => 
+            suspectInfo[killer].includes(victim)
+        );
+        if (theKiller) {
+            return killer;
+        }
+    }
 }
