@@ -530,3 +530,31 @@ function reverse(str) {
 	}
 	return strArr.join(' ').trim();
 }
+
+// IQ Test 6kyu
+function iqTest(numbers) {
+	numbers = numbers.split(' ').map(num => Number(num));
+
+	const evenNums = numbers.filter(num => num % 2 === 0);
+	const oddNums = numbers.filter(num => num % 2 !== 0);
+
+	if (evenNums.length > oddNums.length) {
+		return 1 + numbers.findIndex(num => num % 2 !== 0);
+	} else {
+		return 1 + numbers.findIndex(num => num % 2 === 0);
+	}
+}
+
+// Mexican Wave 6kyu
+function wave(str) {
+	const wave = [];
+	for (let i = 0; i < str.length; i++) {
+		const strSplit = str.split('');
+		if (strSplit[i] === ' ') continue;
+
+		strSplit[i] = strSplit[i].toUpperCase();
+		let word = strSplit.join('');
+		wave.push(word);
+	}
+	return wave;
+}
