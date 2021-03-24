@@ -558,3 +558,33 @@ function wave(str) {
 	}
 	return wave;
 }
+
+// Data Reverse 6kyu
+function dataReverse(data) {
+	const joined = data.join('');
+
+	const newArray = [joined.slice(0, 8)];
+	for (let i = 8; i < joined.length; i += 8) {
+		newArray.unshift(joined.slice(i, i + 8));
+	}
+
+	const final = [];
+	newArray.forEach(set => {
+		for (let i = 0; i < set.length; i++) {
+			final.push(Number(set[i]));
+		}
+	});
+	return final;
+}
+
+// Simple transposition 6kyu
+const simpleTransposition = text => {
+	const row1 = [text[0]];
+	const row2 = [];
+
+	for (let i = 1; i < text.length; i++) {
+		i % 2 === 0 ? row1.push(text[i]) : row2.push(text[i]);
+	}
+
+	return [...row1, ...row2].join('');
+};
