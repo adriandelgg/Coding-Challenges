@@ -588,3 +588,21 @@ const simpleTransposition = text => {
 
 	return [...row1, ...row2].join('');
 };
+
+// Where is my parent!?(cry) 6kyu
+const findChildren = x => {
+	const final = [];
+	x = [...x].sort();
+
+	for (const upper of x) {
+		if (upper === upper.toUpperCase()) {
+			final.push(upper);
+		}
+		for (const lower of x) {
+			if (upper === lower.toUpperCase() && upper !== lower) {
+				final.push(lower);
+			}
+		}
+	}
+	return final.join('');
+};
